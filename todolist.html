@@ -26,8 +26,36 @@
 	<h2>Todos</h2>
 	<script>
 		var db;
+        var databaseName = "todo";
+        var storeName = "todos";
+
+        $(function(){
+            openDb();
+            $("#txtDate").datepicker({
+                dateFormat: "yy-mm-dd",
+                changeMonth: true,
+                changeYear: true,
+                showAnim: "fold",
+                showButtonPanel: true
+            });
+        });
+
+        function openDb(){}
 
 
 	</script>
+    <h3>New Todo</h3>
+    <input type="text" id="txtText" placeholder="text" size="50"><p/>
+    <input type="text" id="txtDate" placeholder="date(yyyy-mm-dd)"><p/>
+    <input type="hidden" id="key"><p/>
+    <input type="button" id="btnAdd" onclick="addTodo()" value="Add Todo">
+
+    <div id="divUpdate">
+        <input type="button" id="btnUpdate" onclick="updateTodo()" value="Update">
+        <input type="button" id="btnCancel" onclick="cancelEdit()" value="Cancel">
+    </div>
+
+    <h3>Todos List</h3>
+    <div id="todosList"></div>
 </body>
 </html>
